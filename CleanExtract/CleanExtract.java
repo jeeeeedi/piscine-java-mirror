@@ -13,11 +13,10 @@ public class CleanExtract {
                     if (result.length() > 0) result.append(" ");
                     result.append(between);
                 }
-            } else if (!trimmed.isEmpty() && firstDot == -1) {
+            } else if (!trimmed.isEmpty()) {
                 if (result.length() > 0) result.append(" ");
                 result.append(trimmed);
             }
-            // If there is only one '.', do nothing (skip)
         }
         return result.toString();
     }
