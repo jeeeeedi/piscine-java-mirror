@@ -8,5 +8,6 @@ public class Chifoumi {
             case SCISSOR:
                 return ChifoumiAction.PAPER;
         }
+        return null; // This line is unreachable but added to satisfy the compiler
     }
 }
