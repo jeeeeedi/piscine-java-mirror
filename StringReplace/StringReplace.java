@@ -1,5 +1,5 @@
 public class StringReplace {
-    public static String replace(String s, target, replacement) {
+    public static String replace(String s, String target, String replacement) {
         if (s == null || target == null || replacement == null) {
             return s;
         }
