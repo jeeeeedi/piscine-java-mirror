@@ -5,7 +5,8 @@ public class ComputeArray {
         }
         int[] result = new int[array.length];
         for (int i = 0; i < array.length; i++) {
-            switch (array[i] % 3) {
+            int mod = (array[i] % 3 + 3) % 3;
+            switch (mod) {
                 case 0:
                     result[i] = array[i] * 5;
                     break;
