@@ -5,17 +5,13 @@ public class ComputeArray {
         }
         int[] result = new int[array.length];
         for (int i = 0; i < array.length; i++) {
-            int mod = (array[i] % 3 + 3) % 3;
-            switch (mod) {
-                case 0:
-                    result[i] = array[i] * 5;
-                    break;
-                case 1:
-                    result[i] = array[i] + 7;
-                    break;
-                case 2:
-                    result[i] = array[i];
-                    break;
+            int mod = array[i] % 3;
+            if (mod == 0) {
+                result[i] = array[i] * 5;
+            } else if (mod == 1 || mod == -2) {
+                result[i] = array[i] + 7;
+            } else if (mod == 2 || mod == -1) {
+                result[i] = array[i];
             }
         }
         return result;
