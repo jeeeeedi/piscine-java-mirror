@@ -3,8 +3,8 @@ public class CleanExtract {
         if (s == null || s.isEmpty()) return "";
         String[] parts = s.split("\\|");
         StringBuilder result = new StringBuilder();
-        for (String part : parts) {
-            String trimmed = part.trim();
+        for (int i = 0; i < parts.length; i++) {
+            String trimmed = parts[i].trim();
             int firstDot = trimmed.indexOf('.');
             int lastDot = trimmed.lastIndexOf('.');
             if (firstDot != -1 && lastDot != -1 && firstDot != lastDot) {
@@ -13,10 +13,11 @@ public class CleanExtract {
                     if (result.length() > 0) result.append(" ");
                     result.append(between);
                 }
-            } else if (!trimmed.isEmpty() && firstDot == -1 && lastDot == -1) {
+            } else if (!trimmed.isEmpty() && firstDot == -1) {
                 if (result.length() > 0) result.append(" ");
                 result.append(trimmed);
             }
+            // If there is only one '.', do nothing (skip)
         }
         return result.toString();
     }
