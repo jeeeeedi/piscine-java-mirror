@@ -14,8 +14,15 @@ public class CleanExtract {
                     result.append(between);
                 }
             } else if (!trimmed.isEmpty()) {
-                if (result.length() > 0) result.append(" ");
-                result.append(trimmed);
+                String cleaned = trimmed;
+                if (firstDot != -1 && firstDot == lastDot) {
+                    // Only one dot: remove it
+                    cleaned = (trimmed.substring(0, firstDot) + trimmed.substring(firstDot + 1)).trim();
+                }
+                if (!cleaned.isEmpty()) {
+                    if (result.length() > 0) result.append(" ");
+                    result.append(cleaned);
+                }
             }
         }
         return result.toString();
