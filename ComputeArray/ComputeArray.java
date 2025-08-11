@@ -8,9 +8,9 @@ public class ComputeArray {
             int mod = array[i] % 3;
             if (mod == 0) {
                 result[i] = array[i] * 5;
-            } else if (mod == 1 || mod == -1) {
+            } else if (mod == 1 || mod == -2) {
                 result[i] = array[i] + 7;
-            } else if (mod == 2 || mod == -2) {
+            } else if (mod == 2 || mod == -1) {
                 result[i] = array[i];
             }
         }
