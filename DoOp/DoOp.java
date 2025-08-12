@@ -25,6 +25,9 @@ public class DoOp {
             case "/":
                 result = leftOperand / rightOperand;
                 break;
+            case "%":
+                result = leftOperand % rightOperand;
+                break;
             default:
                 return "Error";
         }
