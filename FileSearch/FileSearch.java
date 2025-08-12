@@ -1,6 +1,6 @@
 public class FileSearch {
     public static String searchFile(String fileName) {
-        java.io.File root = new java.io.File("../documents");
+        java.io.File root = new java.io.File("documents");
         String result = searchRecursive(root, fileName);
         return result;
     }
