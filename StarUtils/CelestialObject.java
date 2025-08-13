@@ -73,11 +73,11 @@ public class CelestialObject {
     }
 
     // toString method returns a literal version of our class.
-    public static String toString(CelestialObject obj) {
-        return obj.getName() + " is positioned at (" +
-                String.format("%.3f", obj.getX()) + ", " +
-                String.format("%.3f", obj.getY()) + ", " +
-                String.format("%.3f", obj.getZ()) + ")";
+    public String toString() {
+        return name + " is positioned at (" +
+                String.format("%.3f", x) + ", " +
+                String.format("%.3f", y) + ", " +
+                String.format("%.3f", z) + ")";
     }
 
     // equals(Object object) method returns true if all properties of the object in parameter are equal to the current object.
