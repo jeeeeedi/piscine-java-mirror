@@ -1,6 +1,12 @@
 public class Star extends CelestialObject {
     private double magnitude;
 
+    // Default constructor
+    public Star() {
+        super();
+        this.magnitude = 0.0;
+    }
+
     public double getMagnitude() {
         return magnitude;
     }
