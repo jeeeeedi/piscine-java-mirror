@@ -21,16 +21,17 @@ public class Star extends CelestialObject {
     }
 
     @Override
-    public int hashCode() {
-        return Double.hashCode(magnitude);
-    }
-
-    @Override
     public boolean equals(Object object) {
         if (this == object) return true;
         if (!(object instanceof Star)) return false;
+        if (!super.equals(object)) return false; // check superclass properties
         Star other = (Star) object;
         return Double.compare(magnitude, other.magnitude) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * super.hashCode() + Double.hashCode(magnitude);
     }
 
     @Override
