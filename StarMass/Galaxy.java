@@ -28,9 +28,9 @@ public class Galaxy extends CelestialObject {
         for (CelestialObject obj : celestialObjects) {
             int mass = obj.getMass();
 
-            if (obj.getName().equals("Star")) {
+            if (obj instanceof Star) {
                 repartition.put("Star", repartition.get("Star") + mass);
-            } else if (obj.getName().equals("Planet")) {
+            } else if (obj instanceof Planet) {
                 repartition.put("Planet", repartition.get("Planet") + mass);
             } else {
                 repartition.put("Other", repartition.get("Other") + mass);
