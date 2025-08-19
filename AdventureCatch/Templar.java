@@ -12,25 +12,29 @@ public class Templar extends Character implements Healer, Tank {
         return this.healCapacity;
     }
 
-    public void attack(Character target) {
-        try {
-            this.heal(this);
-            int damage = (this.getWeapon() != null) ? this.getWeapon().getDamage() : 6;
-            if (this.getCurrentHealth() <= 0) throw new DeadCharacterException(this);
-            if (target.getCurrentHealth() > 0) {
-                target.takeDamage(damage);
-                if (target.getCurrentHealth() < 0) {
-                    target.setCurrentHealth(0);
-                }
+    public void attack(Character target) throws DeadCharacterException {
+        if (this.getCurrentHealth() <= 0)
+            throw new DeadCharacterException(this);
+        this.heal(this);
+        int damage = (this.getWeapon() != null) ? this.getWeapon().getDamage() : 6;
+        if (target.getCurrentHealth() > 0) {
+            target.takeDamage(damage);
+            if (target.getCurrentHealth() < 0) {
+                target.setCurrentHealth(0);
             }
-        } catch (DeadCharacterException e) {
-            // Character is dead, do nothing
         }
+    }catch(
+
+    DeadCharacterException e)
+    {
+        // Character is dead, do nothing
+    }
     }
 
-    public void takeDamage(int damage) {
+    public void takeDamage(int damage) throws DeadCharacterException {
         try {
-            if (this.getCurrentHealth() <= 0) throw new DeadCharacterException(this);
+            if (this.getCurrentHealth() <= 0)
+                throw new DeadCharacterException(this);
             this.setCurrentHealth(this.getCurrentHealth() - damage + this.shield);
             if (this.getCurrentHealth() <= 0) {
                 this.setCurrentHealth(0);
@@ -40,9 +44,10 @@ public class Templar extends Character implements Healer, Tank {
         }
     }
 
-    public void heal(Character ch) {
+    public void heal(Character ch) throws DeadCharacterException {
         try {
-            if (ch.getCurrentHealth() <= 0) throw new DeadCharacterException(ch);
+            if (ch.getCurrentHealth() <= 0)
+                throw new DeadCharacterException(ch);
             if (ch.getCurrentHealth() < ch.getMaxHealth()) {
                 int newHealth = ch.getCurrentHealth() + this.healCapacity;
                 ch.setCurrentHealth(newHealth);
