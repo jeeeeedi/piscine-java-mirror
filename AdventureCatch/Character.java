@@ -52,7 +52,7 @@ public abstract class Character {
         }
     }
 
-    public abstract void takeDamage(int damage); /*
+    public abstract void takeDamage(int damage) throws DeadCharacterException; /*
                                                   * {
                                                   * if (currentHealth > 0) {
                                                   * currentHealth -= damage;
