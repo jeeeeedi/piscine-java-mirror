@@ -23,12 +23,6 @@ public class Templar extends Character implements Healer, Tank {
                 target.setCurrentHealth(0);
             }
         }
-    }catch(
-
-    DeadCharacterException e)
-    {
-        // Character is dead, do nothing
-    }
     }
 
     public void takeDamage(int damage) throws DeadCharacterException {
