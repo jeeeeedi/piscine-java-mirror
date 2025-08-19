@@ -4,8 +4,7 @@ import java.util.List;
 public class Character {
 
     private final int maxHealth;
-    // private int currentHealth;
-    public int currentHealth; // AdventureSorcerer
+    private int currentHealth;
     private final String name;
     private static List<Character> allCharacters = new ArrayList<>(); // AdventureUtils
 
