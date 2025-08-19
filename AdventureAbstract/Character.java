@@ -55,14 +55,14 @@ public abstract class Character {
         }
     } */
 
-    abstract void attack(Character target); /* {
+    public void attack(Character target) {
         if (currentHealth > 0) {
             target.takeDamage(9);
             if (currentHealth < 0) {
                 currentHealth = 0;
             }
         }
-    } */
+    }
 
     /*--- AdventureUtils ---*/
 
