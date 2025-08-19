@@ -12,44 +12,33 @@ public class Sorcerer extends Character implements Healer {
         return this.healCapacity;
     }
 
-    public void attack(Character target) {
-        try {
-            this.heal(this);
-            int damage = (this.getWeapon() != null) ? this.getWeapon().getDamage() : 10;
-            if (this.getCurrentHealth() <= 0) throw new DeadCharacterException(this);
-            if (target.getCurrentHealth() > 0) {
-                target.takeDamage(damage);
-                if (target.getCurrentHealth() < 0) {
-                    target.setCurrentHealth(0);
-                }
+    public void attack(Character target) throws DeadCharacterException {
+        if (this.getCurrentHealth() <= 0) throw new DeadCharacterException(this);
+        this.heal(this);
+        int damage = (this.getWeapon() != null) ? this.getWeapon().getDamage() : 10;
+        if (target.getCurrentHealth() > 0) {
+            target.takeDamage(damage);
+            if (target.getCurrentHealth() < 0) {
+                target.setCurrentHealth(0);
             }
-        } catch (DeadCharacterException e) {
-            // Character is dead, do nothing
         }
     }
 
-    public void takeDamage(int damage) {
-        try {
-            if (this.getCurrentHealth() <= 0) throw new DeadCharacterException(this);
-            this.setCurrentHealth(this.getCurrentHealth() - damage);
-            if (this.getCurrentHealth() < 0) {
-                this.setCurrentHealth(0);
-            }
-        } catch (DeadCharacterException e) {
-            // Already dead, do nothing
+    public void takeDamage(int damage) throws DeadCharacterException {
+        if (this.getCurrentHealth() <= 0) throw new DeadCharacterException(this);
+        this.setCurrentHealth(this.getCurrentHealth() - damage);
+        if (this.getCurrentHealth() < 0) {
+            this.setCurrentHealth(0);
         }
     }
 
     @Override
-    public void heal(Character character) {
-        try {
-            if (character.getCurrentHealth() <= 0) throw new DeadCharacterException(character);
-            if (character.getCurrentHealth() < character.getMaxHealth()) {
-                int newHealth = character.getCurrentHealth() + this.healCapacity;
-                character.setCurrentHealth(newHealth);
-            }
-        } catch (DeadCharacterException e) {
-            // Cannot heal dead character
+    public void heal(Character character) throws DeadCharacterException {
+        if (this.getCurrentHealth() <= 0) throw new DeadCharacterException(this);
+        if (character.getCurrentHealth() <= 0) throw new DeadCharacterException(character);
+        if (character.getCurrentHealth() < character.getMaxHealth()) {
+            int newHealth = character.getCurrentHealth() + this.healCapacity;
+            character.setCurrentHealth(newHealth);
         }
     }
 
