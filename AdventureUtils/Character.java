@@ -58,7 +58,7 @@ public class Character {
         if (allCharacters.isEmpty()) {
             return "------------------------------------------\n" +
                    "Nobody's fighting right now !\n" +
-                   "------------------------------------------\n";
+                   "------------------------------------------";
         } else {
             StringBuilder string = new StringBuilder();
             string.append("------------------------------------------\n");
