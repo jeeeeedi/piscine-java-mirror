@@ -23,7 +23,7 @@ public abstract class Character {
         return currentHealth;
     }
 
-    public void setCurrentHealth(int newHealth) {
+    protected void setCurrentHealth(int newHealth) {
         if (newHealth > maxHealth) {
             this.currentHealth = maxHealth;
         } else if (newHealth < 0) {
