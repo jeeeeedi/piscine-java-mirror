@@ -8,13 +8,13 @@ public abstract class Character {
     private final String name;
     private static List<Character> allCharacters = new ArrayList<>(); // AdventureUtils
     private Weapon weapon; // AdventureWeapon
-    
+
     public Character(String name, int maxHealth, Weapon weapon) {
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
         this.name = name;
         allCharacters.add(this); // AdventureUtils
-        this.weapon = null; // Initialize weapon to null
+        this.weapon = weapon;
     }
 
     public int getMaxHealth() {
@@ -52,23 +52,27 @@ public abstract class Character {
         }
     }
 
-    public abstract void takeDamage(int damage); /* {
-        if (currentHealth > 0) {
-            currentHealth -= damage;
-            if (currentHealth < 0) {
-                currentHealth = 0;
-            }
-        }
-    } */
+    public abstract void takeDamage(int damage); /*
+                                                  * {
+                                                  * if (currentHealth > 0) {
+                                                  * currentHealth -= damage;
+                                                  * if (currentHealth < 0) {
+                                                  * currentHealth = 0;
+                                                  * }
+                                                  * }
+                                                  * }
+                                                  */
 
-    public abstract void attack(Character target); /* {
-        if (currentHealth > 0) {
-            target.takeDamage(9);
-            if (currentHealth < 0) {
-                currentHealth = 0;
-            }
-        }
-    } */
+    public abstract void attack(Character target); /*
+                                                    * {
+                                                    * if (currentHealth > 0) {
+                                                    * target.takeDamage(9);
+                                                    * if (currentHealth < 0) {
+                                                    * currentHealth = 0;
+                                                    * }
+                                                    * }
+                                                    * }
+                                                    */
 
     /*--- AdventureUtils ---*/
 
