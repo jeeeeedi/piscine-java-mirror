@@ -62,8 +62,8 @@ public class Character {
         } else {
             return "------------------------------------------\n" +
                     "Characters currently fighting : " +
-                    allCharacters.get(0).toString() + "\n" +
-                    allCharacters.get(1).toString() + "\n" +
+                    " - " + allCharacters.get(0).toString() + "\n" +
+                    " - " + allCharacters.get(1).toString() + "\n" +
                     "------------------------------------------";
         }
     }
