@@ -46,7 +46,7 @@ public abstract class Character {
         }
     }
 
-    abstract void takeDamage(int damage); /* {
+    public abstract void takeDamage(int damage); /* {
         if (currentHealth > 0) {
             currentHealth -= damage;
             if (currentHealth < 0) {
