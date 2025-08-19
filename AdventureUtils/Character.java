@@ -49,6 +49,9 @@ public class Character {
     public void attack(Character target) {
         if (currentHealth > 0) {
             target.takeDamage(9);
+            if (currentHealth < 0) {
+                currentHealth = 0;
+            }
         } // handle error <= 0?
     }
 
