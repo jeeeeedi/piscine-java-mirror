@@ -60,14 +60,11 @@ public class Character {
                     "Nobody's fighting right now !\n" +
                     "------------------------------------------";
         } else {
-            StringBuilder status = new StringBuilder();
-            status.append("------------------------------------------\n");
-            status.append("Characters currently fighting : \n");
-            for (Character character : allCharacters) {
-                status.append(" - ").append(character.toString()).append("\n");
-            }
-            status.append("------------------------------------------");
-            return status.toString();
+            return "------------------------------------------\n" +
+                    "Characters currently fighting : " +
+                    allCharacters.get(0).toString() + "\n" +
+                    allCharacters.get(1).toString() + "\n" +
+                    "------------------------------------------";
         }
     }
 
