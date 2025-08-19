@@ -52,25 +52,27 @@ public class Character {
             if (currentHealth < 0) {
                 currentHealth = 0;
             }
-        } // handle error <= 0?
+        }
     }
 
     /*--- AdventureUtils ---*/
 
     public static String printStatus() {
-        if (allCharacters.isEmpty()) {
+        if (allCharacters.isEmpty() || allCharacters == null) {
             return "------------------------------------------\n" +
-                   "Nobody's fighting right now !\n" +
-                   "------------------------------------------\n";
+                    "Nobody's fighting right now !\n" +
+                    "------------------------------------------\n";
         } else {
             StringBuilder string = new StringBuilder();
-            string.append("------------------------------------------\n");
-            string.append("Characters currently fighting : \n");
+
             for (Character c : allCharacters) {
                 string.append(" - ").append(c.toString()).append("\n");
             }
-            string.append("------------------------------------------\n");
-            return string.toString();
+            
+            return "------------------------------------------\n" +
+                    "Characters currently fighting :\n" +
+                    string.toString() +
+                    "------------------------------------------\n";
         }
     }
 
