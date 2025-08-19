@@ -1,19 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
+/* import java.util.ArrayList;
+import java.util.List; */
 
 public class Character {
 
     private final int maxHealth;
-    // private int currentHealth;
-    public int currentHealth; // AdventureSorcerer
+    private int currentHealth;
+    // public int currentHealth; // AdventureSorcerer
     private final String name;
-    private static List<Character> allCharacters = new ArrayList<>(); // AdventureUtils
+    // private static List<Character> allCharacters = new ArrayList<>(); // AdventureUtils
 
     public Character(String name, int maxHealth) {
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
         this.name = name;
-        allCharacters.add(this); // AdventureUtils
+        // allCharacters.add(this); // AdventureUtils
     }
 
     public int getMaxHealth() {
@@ -50,7 +50,7 @@ public class Character {
     }
 
     /*--- AdventureUtils ---*/
-
+/* 
     public static String printStatus() {
         if (allCharacters.size() <= 0) {
             return "------------------------------------------\n" +
@@ -80,5 +80,5 @@ public class Character {
             }
         }
         return null;
-    }
+    } */
 }
