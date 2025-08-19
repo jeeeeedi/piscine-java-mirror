@@ -55,16 +55,19 @@ public class Character {
     /*--- AdventureUtils ---*/
 
     public static String printStatus() {
-        if (allCharacters.size() <= 0) {
+        if (allCharacters.isEmpty()) {
             return "------------------------------------------\n" +
-                    "Nobody's fighting right now !\n" +
-                    "------------------------------------------";
+                   "Nobody's fighting right now !\n" +
+                   "------------------------------------------\n";
         } else {
-            return "------------------------------------------\n" +
-                    "Characters currently fighting : " +
-                    " - " + allCharacters.get(0).toString() + "\n" +
-                    " - " + allCharacters.get(1).toString() + "\n" +
-                    "------------------------------------------";
+            StringBuilder string = new StringBuilder();
+            string.append("------------------------------------------\n");
+            string.append("Characters currently fighting : \n");
+            for (Character c : allCharacters) {
+                string.append(" - ").append(c.toString()).append("\n");
+            }
+            string.append("------------------------------------------\n");
+            return string.toString();
         }
     }
 
