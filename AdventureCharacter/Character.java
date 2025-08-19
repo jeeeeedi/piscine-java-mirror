@@ -40,7 +40,9 @@ public class Character {
     public void takeDamage(int damage) {
         if (currentHealth > 0) {
             currentHealth -= damage;
-        } // handle error <= 0?
+        } else {
+            currentHealth = 0;
+        }
     }
 
     public void attack(Character target) {
