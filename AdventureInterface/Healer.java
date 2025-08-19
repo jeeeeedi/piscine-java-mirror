@@ -2,7 +2,7 @@
 
 public interface Healer {
 
-    public Character heal(Character character);
+    public void heal(Character character);
 
     public int getHealCapacity();
 }
