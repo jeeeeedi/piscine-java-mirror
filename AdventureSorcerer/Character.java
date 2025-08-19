@@ -23,6 +23,16 @@ public class Character {
         return currentHealth;
     }
 
+    public void setCurrentHealth(int newHealth) {
+        if (newHealth > maxHealth) {
+            this.currentHealth = maxHealth;
+        } else if (newHealth < 0) {
+            this.currentHealth = 0;
+        } else {
+            this.currentHealth = newHealth;
+        }
+    }
+
     public String getName() {
         return name;
     }
@@ -67,7 +77,7 @@ public class Character {
             for (Character c : allCharacters) {
                 string.append(" - ").append(c.toString()).append("\n");
             }
-            
+
             return "------------------------------------------\n" +
                     "Characters currently fighting :\n" +
                     string.toString() +

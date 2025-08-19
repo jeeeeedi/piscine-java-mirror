@@ -1,3 +1,4 @@
+import AdventureSorcerer.Character;
 /* ---AdventureSorcerer--- */
 
 public class Sorcerer extends Character implements Healer {
@@ -16,11 +17,7 @@ public class Sorcerer extends Character implements Healer {
     public void heal(Character character) {
         if (character.getCurrentHealth() > 0 && character.getCurrentHealth() < character.getMaxHealth()) {
             int newHealth = character.getCurrentHealth() + this.healCapacity;
-            if (newHealth > character.getMaxHealth()) {
-                character.currentHealth = character.getMaxHealth();
-            } else {
-                character.currentHealth = newHealth;
-            }
+            character.setCurrentHealth(newHealth);
         }
     }
 
