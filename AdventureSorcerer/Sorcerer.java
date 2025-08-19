@@ -1,4 +1,3 @@
-import AdventureSorcerer.Character;
 /* ---AdventureSorcerer--- */
 
 public class Sorcerer extends Character implements Healer {
