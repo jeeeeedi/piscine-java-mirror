@@ -7,8 +7,9 @@ public class Monster extends Character {
     }
 
     public void attack(Character target) {
+        int damage = (this.getWeapon() != null) ? this.getWeapon().getDamage() : 7;
         if (target.getCurrentHealth() > 0) {
-            target.takeDamage(7);
+            target.takeDamage(damage);
             if (target.getCurrentHealth() < 0) {
                 target.setCurrentHealth(0);
             }
@@ -27,10 +28,11 @@ public class Monster extends Character {
 
     @Override
     public String toString() {
+        String weaponStr = " He has the weapon " + this.getWeapon();
         if (getCurrentHealth() > 0) {
-            return getName() + " is a monster with " + getCurrentHealth() + " HP";
+            return getName() + " is a monster with " + getCurrentHealth() + " HP" + weaponStr;
         } else {
-            return getName() + " is a monster and is dead";
+            return getName() + " is a monster and is dead" + weaponStr;
         }
     }
 }
