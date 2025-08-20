@@ -52,27 +52,9 @@ public abstract class Character {
         }
     }
 
-    public abstract void takeDamage(int damage) throws DeadCharacterException; /*
-                                                  * {
-                                                  * if (currentHealth > 0) {
-                                                  * currentHealth -= damage;
-                                                  * if (currentHealth < 0) {
-                                                  * currentHealth = 0;
-                                                  * }
-                                                  * }
-                                                  * }
-                                                  */
+    public abstract void takeDamage(int damage) throws DeadCharacterException;
 
-    public abstract void attack(Character target) throws DeadCharacterException; /*
-                                                    * {
-                                                    * if (currentHealth > 0) {
-                                                    * target.takeDamage(9);
-                                                    * if (currentHealth < 0) {
-                                                    * currentHealth = 0;
-                                                    * }
-                                                    * }
-                                                    * }
-                                                    */
+    public abstract void attack(Character target) throws DeadCharacterException;
 
     /*--- AdventureUtils ---*/
 

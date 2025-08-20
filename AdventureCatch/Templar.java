@@ -26,28 +26,23 @@ public class Templar extends Character implements Healer, Tank {
     }
 
     public void takeDamage(int damage) throws DeadCharacterException {
-        try {
-            if (this.getCurrentHealth() <= 0)
-                throw new DeadCharacterException(this);
-            this.setCurrentHealth(this.getCurrentHealth() - damage + this.shield);
-            if (this.getCurrentHealth() <= 0) {
-                this.setCurrentHealth(0);
-            }
-        } catch (DeadCharacterException e) {
-            // Already dead, do nothing
+        if (this.getCurrentHealth() <= 0)
+            throw new DeadCharacterException(this);
+        this.setCurrentHealth(this.getCurrentHealth() - damage + this.shield);
+        if (this.getCurrentHealth() <= 0) {
+            this.setCurrentHealth(0);
         }
     }
 
+    @Override
     public void heal(Character ch) throws DeadCharacterException {
-        try {
-            if (ch.getCurrentHealth() <= 0)
-                throw new DeadCharacterException(ch);
-            if (ch.getCurrentHealth() < ch.getMaxHealth()) {
-                int newHealth = ch.getCurrentHealth() + this.healCapacity;
-                ch.setCurrentHealth(newHealth);
-            }
-        } catch (DeadCharacterException e) {
-            // Cannot heal dead character
+        if (this.getCurrentHealth() <= 0)
+            throw new DeadCharacterException(this);
+        if (ch.getCurrentHealth() <= 0)
+            throw new DeadCharacterException(ch);
+        if (ch.getCurrentHealth() < ch.getMaxHealth()) {
+            int newHealth = ch.getCurrentHealth() + this.healCapacity;
+            ch.setCurrentHealth(newHealth);
         }
     }
 
